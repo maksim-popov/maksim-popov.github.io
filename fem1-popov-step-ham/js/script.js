@@ -6,9 +6,15 @@ $('.services-menu').on('click', (event) => {
     $('.services-content').each( (i, elem) => {
         if ($(event.target).data('name') === $(elem).first().data('name')) {
             $(event.target).addClass('services-menu-btn-active');
-            $(elem).show();
+            setTimeout(() => {
+                $(elem).show();
+                $(elem).animate({opacity: 1}, 100);
+            }, 500)
         } else {
-            $(elem).hide();
+            $(elem).animate({opacity: 0}, 400);
+            setTimeout(() => {
+                $(elem).hide();
+            }, 500)
         }
     });
 });
@@ -133,21 +139,21 @@ let currentGalleryItem = 1;
 const $galleryLoadMoreBtn = $('#galleryLoadMoreBtn');
 
 for (let i = 0; i < 8; i++) {
-    $('.grid').append(`<div class="grid-item"><img src='img/gallery/gallery-image-${currentGalleryItem}.jpg'></div> `);
+    $('.grid').append(`<div class="grid-item"><img src='img/gallery/gallery-image-${currentGalleryItem}.jpg' alt=""></div> `);
     currentGalleryItem++;
 }
 
-setTimeout(() => {
+$('img').on('load', () => {
     $('.grid').masonry({
         itemSelector: '.grid-item',
     });
-},500);
+});
 
 const addGaleryItems = (itemsNumber) => {
     const elem = [];
     for (let i = 0; i < itemsNumber; i++) {
         const div = document.createElement('div');
-        div.innerHTML = `<img src='img/gallery/gallery-image-${currentGalleryItem}.jpg'>`;
+        div.innerHTML = `<img src='img/gallery/gallery-image-${currentGalleryItem}.jpg' alt="">`;
         div.className = 'grid-item';
         elem.push(div);
         currentGalleryItem++;
@@ -172,6 +178,17 @@ const addGaleryItems = (itemsNumber) => {
 };
 
 $galleryLoadMoreBtn.on('click', () => {
-    addGaleryItems(3);
+    addGaleryItems(4);
 });
 
+$('.grid-item').on('mouseenter', function () {
+    console.log(this);
+    const $div = $(document.createElement('div'));
+    $div.addClass('grid-item-hover');
+    $div.html('<button class="grid-item-hover-btn"><i class="fas fa-search"></i></button><button class="grid-item-hover-btn"><i class="fas fa-arrows-alt"></i></button>')
+    $(this).prepend($div);
+});
+
+$('.grid-item').on('mouseleave', function () {
+    $('.grid-item-hover').remove();
+});
