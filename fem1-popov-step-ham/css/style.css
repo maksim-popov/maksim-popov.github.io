@@ -747,7 +747,7 @@ body {
     color: #fff;
     background-color: #00CBF6;
     border: none;
-    border-radius: none;
+    border-radius: 0;
 }
 
 .grid-item-hover-btn:hover {
