@@ -4,7 +4,7 @@
 $('.services-menu').on('click', (event) => {
     $('.services-menu-btn-active').removeClass('services-menu-btn-active');
     $('.services-content').each( (i, elem) => {
-        if ($(event.target).data('name') === $(elem).first().data('name')) {
+        if ($(event.target).data('name') === $(elem).data('name')) {
             $(event.target).addClass('services-menu-btn-active');
             setTimeout(() => {
                 $(elem).show();
@@ -25,15 +25,15 @@ $('.services-menu').on('click', (event) => {
 
 let visibleItemsNumber = 12;
 const $items = $('.works-content-item');
-const $worksLoadMoreBtn = $('#worksLoadMoreBtn').first();
-const $itemHoverContent = $('div.works-content-hover').first();
+const $worksLoadMoreBtn = $('#worksLoadMoreBtn');
+const $itemHoverContent = $('div.works-content-hover');
 $itemHoverContent.remove();
 
 
 const showItems = () => {
     $items.hide();
     $worksLoadMoreBtn.hide();
-    const category = $('.works-filter-btn-active').first().data('name');
+    const category = $('.works-filter-btn-active').data('name');
     let counter = visibleItemsNumber;
     $items.each((index, elem) => {
         if (!category || category === $(elem).data('category')) {
@@ -182,10 +182,11 @@ $galleryLoadMoreBtn.on('click', () => {
 });
 
 $('.grid-item').on('mouseenter', function () {
-    console.log(this);
-    const $div = $(document.createElement('div'));
-    $div.addClass('grid-item-hover');
-    $div.html('<button class="grid-item-hover-btn"><i class="fas fa-search"></i></button><button class="grid-item-hover-btn"><i class="fas fa-arrows-alt"></i></button>')
+    const $div = $('' +
+        '<div class="grid-item-hover">' +
+            '<button class="grid-item-hover-btn"><i class="fas fa-search"></i></button>' +
+            '<button class="grid-item-hover-btn"><i class="fas fa-arrows-alt"></i></button>' +
+        '</div>');
     $(this).prepend($div);
 });
 

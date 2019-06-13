@@ -37,8 +37,12 @@ body {
     background-color: #49473F80;
 }
 
+.header-nav-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .header-logo {
-    float: left;
     margin: 25px 0;
     font-size: 30px;
     text-decoration: none;
@@ -59,13 +63,12 @@ body {
 }
 
 .header-menu {
-    float: right;
     display: flex;
 }
 
 .header-menu-item {
-    padding: 55px 10px;
-    font-size: 12px;
+    padding: 52px 10px;
+    font-size: 14px;
     font-weight: 700;
     color: #b8b8b8;
     list-style-type: none;
@@ -79,13 +82,8 @@ body {
 }
 
 .header-search-btn {
-    float: right;
+    font-size: 20px;
     padding: 49px 10px;
-    color: #b8b8b8;
-}
-
-.header-search-btn:hover {
-    color: #18cfab;
 }
 
 .header-title {
@@ -483,9 +481,8 @@ body {
 }
 
 .people-nav {
-    margin: 20px 0;
+    margin: 50px 0 20px 0;
     text-align: center;
-    margin-top: 50px;
 }
 
 .people-nav-arrow {
