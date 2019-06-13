@@ -29,7 +29,6 @@ const $worksLoadMoreBtn = $('#worksLoadMoreBtn');
 const $itemHoverContent = $('div.works-content-hover');
 $itemHoverContent.remove();
 
-
 const showItems = () => {
     $items.hide();
     $worksLoadMoreBtn.hide();
@@ -61,9 +60,11 @@ $worksLoadMoreBtn.on('click', () => {
 });
 
 $('.works-filter').on('click', (event) => {
-    $('.works-filter-btn').removeClass('works-filter-btn-active');
-    $(event.target).addClass('works-filter-btn-active');
-    showItems();
+    if($(event.target).is('li')) {
+        $('.works-filter-btn').removeClass('works-filter-btn-active');
+        $(event.target).addClass('works-filter-btn-active');
+        showItems();
+    }
 });
 
 $items.on('mouseenter', function () {
