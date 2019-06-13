@@ -178,19 +178,25 @@ const addGaleryItems = (itemsNumber) => {
     }, 1000)
 };
 
-$galleryLoadMoreBtn.on('click', () => {
-    addGaleryItems(4);
-});
-
-$('.grid-item').on('mouseenter', function () {
-    const $div = $('' +
-        '<div class="grid-item-hover">' +
+const addHover = () => {
+    $('.grid-item').mouseenter(function () {
+        const $div = $('' +
+            '<div class="grid-item-hover">' +
             '<button class="grid-item-hover-btn"><i class="fas fa-search"></i></button>' +
             '<button class="grid-item-hover-btn"><i class="fas fa-arrows-alt"></i></button>' +
-        '</div>');
-    $(this).prepend($div);
-});
+            '</div>');
+        $(this).prepend($div);
+    });
 
-$('.grid-item').on('mouseleave', function () {
-    $('.grid-item-hover').remove();
+    $('.grid-item').mouseleave(function () {
+        $('.grid-item-hover').remove();
+    });
+};
+
+addHover();
+
+
+$galleryLoadMoreBtn.on('click', () => {
+    addGaleryItems(4);
+    addHover();
 });
