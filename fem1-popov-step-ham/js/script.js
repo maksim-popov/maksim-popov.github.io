@@ -1,22 +1,13 @@
 /*
 Функционал секции Our Services
 */
+
 $('.services-menu').on('click', (event) => {
     $('.services-menu-btn-active').removeClass('services-menu-btn-active');
-    $('.services-content').each( (i, elem) => {
-        if ($(event.target).data('name') === $(elem).data('name')) {
-            $(event.target).addClass('services-menu-btn-active');
-            setTimeout(() => {
-                $(elem).show();
-                $(elem).animate({opacity: 1}, 100);
-            }, 500)
-        } else {
-            $(elem).animate({opacity: 0}, 400);
-            setTimeout(() => {
-                $(elem).hide();
-            }, 500)
-        }
-    });
+    $(event.target).addClass('services-menu-btn-active');
+    const name = $(event.target).data('name');
+    $(`[data-content="${name}"]`).show();
+    $(`[data-content="${name}"]`).siblings().hide();
 });
 
 /*
@@ -33,17 +24,17 @@ const showItems = () => {
     $items.hide();
     $worksLoadMoreBtn.hide();
     const category = $('.works-filter-btn-active').data('name');
-    let counter = visibleItemsNumber;
-    $items.each((index, elem) => {
-        if (!category || category === $(elem).data('category')) {
-            if (counter > 0) {
-                $(elem).show();
-                counter--;
-            } else {
-                $worksLoadMoreBtn.show();
-            }
+    if (!category) {
+        $(`.works-content-item:lt(${visibleItemsNumber})`).show();
+        if ($('.works-content-item').length > visibleItemsNumber) {
+            $worksLoadMoreBtn.show();
         }
-    })
+    } else {
+        $(`[data-category='${category}']:lt(${visibleItemsNumber})`).show();
+        if ($(`[data-category='${category}']`).length > visibleItemsNumber) {
+            $worksLoadMoreBtn.show();
+        }
+    }
 };
 
 showItems();
