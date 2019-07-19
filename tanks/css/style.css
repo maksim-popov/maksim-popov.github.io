@@ -100,8 +100,10 @@
 }
 
 .level-title {
+    margin-bottom: 20px;
     font-family: sans-serif;
     text-align: center;
+    font-size: 22px;
 }
 
 .level-form {
@@ -122,4 +124,8 @@
 
 .start-btn:hover {
     background-color: limegreen;
+}
+
+#level {
+    font-size: 18px;
 }

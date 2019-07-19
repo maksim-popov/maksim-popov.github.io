@@ -13,6 +13,8 @@ let fightFrequency = 150;
 let newBotFrequency = 4000;
 let botsNumber = 10;
 let botsLeft = botsNumber;
+let tanks = {};
+let newBotTimerId = 0;
 
 field.showWall = () => {
     for (let row = 0; row < 50; row++) {
@@ -208,9 +210,6 @@ class TankBot extends Tank {
     }
 }
 
-let tanks = {};
-let newBotTimerId = 0;
-
 startBtn.onclick = () => {
     level = document.getElementById('level').value;
     switch (level) {
@@ -287,7 +286,7 @@ function start() {
     };
 }
 
-function clearAllInterval () {
+function clearAllInterval() {
     clearInterval(tanks.player.timerId.up);
     clearInterval(tanks.player.timerId.down);
     clearInterval(tanks.player.timerId.left);
