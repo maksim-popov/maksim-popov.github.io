@@ -154,17 +154,21 @@ field.onclick = (event) => {
     let cell = '';
     if (event.target.className === 'cell') {
         cell = event.target;
+    } else if (event.target.className === "fas fa-flag icon") {
+        cell = event.target.parentNode;
     }
-    if (gameOver === false && cell.dataset.flag === "false") {
-        if (cell.dataset.bomb === 'true') {
-            letGameOver();
-        } else {
-            openCell(cell);
+    if (cell !== '') {
+        if (gameOver === false && cell.dataset.flag === "false") {
+            if (cell.dataset.bomb === 'true') {
+                letGameOver();
+            } else {
+                openCell(cell);
+            }
         }
-    }
-    if (firstStep === true) {
-        restart.style.visibility = 'visible';
-        firstStep = false;
+        if (firstStep === true) {
+            restart.style.visibility = 'visible';
+            firstStep = false;
+        }
     }
 };
 
