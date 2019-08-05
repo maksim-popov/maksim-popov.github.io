@@ -371,6 +371,10 @@ body {
         font-size: 12px;
         font-weight: 300;
     }
+    .nav-menu-item:hover {
+        color: #ACD8AD;
+        background: none;
+    }
     .nav-logo {
         display: block;
     }
