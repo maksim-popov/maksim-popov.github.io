@@ -98,6 +98,14 @@ aside {
     font-family: sans-serif;
 }
 
+.aside-link {
+    display: block;
+    margin: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #eeeeee;
+}
+
 main {
     display: flex;
     justify-content: space-evenly;
@@ -230,5 +238,16 @@ section a {
     main {
         width: 100vw;
         height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-item-title {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .skills-item {
+        text-align: center;
     }
 }
