@@ -149,6 +149,10 @@ section a {
     text-align: right;
 }
 
+.skills-item-title {
+    margin-right: 3px;
+}
+
 .skills-indent {
     height: 10px;
 }
