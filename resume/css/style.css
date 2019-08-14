@@ -255,14 +255,3 @@ section a {
         height: auto;
     }
 }
-
-@media (max-width: 480px) {
-    .skills-item-title {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .skills-item {
-        text-align: center;
-    }
-}
