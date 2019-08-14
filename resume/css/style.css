@@ -236,6 +236,10 @@ section a {
         height: auto;
     }
 
+    section {
+        margin: 10px 20px;
+    }
+
     aside {
         width: 100vw;
         height: auto;
