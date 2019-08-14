@@ -108,8 +108,7 @@ aside {
 
 main {
     display: flex;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
     width: 70vw;
     height: 100vh;
@@ -120,8 +119,9 @@ main {
 }
 
 section {
-    width: 400px;
-    margin: 20px;
+    max-width: 800px;
+    width: 100%;
+    margin: 20px 40px;
     padding: 20px;
     border: 1px solid #444444;
     border-radius: 3px;
@@ -140,12 +140,14 @@ section a {
 }
 
 .skills-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .skills-item {
-    margin-bottom: 10px;
+    width: 190px;
+    margin: 0 10px 10px 10px;
     text-align: right;
 }
 
@@ -172,18 +174,12 @@ section a {
     background: none;
 }
 
-.skills-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
-}
-
 .summary-item {
     line-height: 1.2;
     margin-bottom: 10px;
 }
 
-.summary-item:before {
+.list-item:before {
     content:'';
     display: inline-block;
     width: 10px;
@@ -211,6 +207,18 @@ section a {
     line-height: 1.2;
 }
 
+.project-item {
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.project-item-desc {
+    font-weight: 300;
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 4px;
+}
+
 @media (max-width: 1380px) {
     aside {
         width: 40vw;
@@ -221,7 +229,6 @@ section a {
         height: auto;
     }
 }
-
 
 @media (max-width: 900px) {
     .container {
